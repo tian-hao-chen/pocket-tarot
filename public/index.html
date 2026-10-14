@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>口袋塔羅 Pocket Tarot</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col items-center p-4">
+
+  <div class="w-full max-w-xl flex flex-col items-center">
+    <header class="text-center my-4">
+      <h1 class="text-2xl font-bold tracking-wider text-amber-400">✨ 口袋塔羅 · 78張完整版</h1>
+      <p class="text-xs text-slate-400 mt-1">靜心默念，讓牌面映照內心真實能量</p>
+    </header>
+
+    <!-- 問題輸入區 -->
+    <div class="w-full bg-slate-900 border border-slate-800 rounded-xl p-4 shadow-lg mb-4">
+      <label class="block text-xs text-amber-300 font-medium mb-1">心裡默念或輸入你的問題：</label>
+      <input id="user-question" type="text" placeholder="例如：這段關係接下來的發展如何？該如何面對？" 
+             class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-amber-400">
+      
+      <!-- 牌陣按鈕組 -->
+      <div class="grid grid-cols-3 gap-2 mt-3">
+        <button onclick="startSpread('single')" class="py-2 bg-slate-800 hover:bg-slate-700 text-amber-300 border border-amber-500/30 rounded-lg text-xs md:text-sm font-semibold transition">
+          單張指引
+        </button>
+        <button onclick="startSpread('three')" class="py-2 bg-indigo-700 hover:bg-indigo-600 text-white rounded-lg text-xs md:text-sm font-semibold transition">
+          三張時間流
+        </button>
+        <button onclick="startSpread('five')" class="py-2 bg-purple-700 hover:bg-purple-600 text-amber-200 rounded-lg text-xs md:text-sm font-semibold transition shadow-md">
+          五牌大十字陣
+        </button>
+      </div>
+    </div>
+
+    <!-- 牌卡展示區 -->
+    <div id="cards-display" class="w-full mb-6"></div>
+
+    <!-- Gemini 解讀區 -->
+    <div id="ai-section" class="w-full bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg hidden">
+      <h3 class="text-base font-bold text-amber-400 flex items-center gap-2 mb-2">
+        <span>🔮</span> 占卜師深度解析
+      </h3>
+      <div id="ai-loading" class="text-sm text-slate-400 animate-pulse py-4 text-center">
+        正在連線直覺能量，為您深度抽絲剝繭...
+      </div>
+      <div id="ai-content" class="text-sm text-slate-300 whitespace-pre-line leading-relaxed hidden"></div>
+    </div>
+  </div>
+
+  <script>
+    // 78 張經典萊德偉特塔羅牌資料庫
+    const tarotDeck = [
+      // 22 張大阿爾克那
+      { id: 0, name: "愚者 (The Fool)", image: "https://upload.wikimedia.org/wikipedia/commons/9/90/RWS_Tarot_00_Fool.jpg" },
+      { id: 1, name: "魔術師 (The Magician)", image: "https://upload.wikimedia.org/wikipedia/commons/d/de/RWS_Tarot_01_Magician.jpg" },
+      { id: 2, name: "女祭司 (The High Priestess)", image: "https://upload.wikimedia.org/wikipedia/commons/8/88/RWS_Tarot_02_High_Priestess.jpg" },
+      { id: 3, name: "皇后 (The Empress)", image: "https://upload.wikimedia.org/wikipedia/commons/d/d2/RWS_Tarot_03_Empress.jpg" },
+      { id: 4, name: "皇帝 (The Emperor)", image: "https://upload.wikimedia.org/wikipedia/commons/c/c3/RWS_Tarot_04_Emperor.jpg" },
+      { id: 5, name: "教皇 (The Hierophant)", image: "https://upload.wikimedia.org/wikipedia/commons/8/8d/RWS_Tarot_05_Hierophant.jpg" },
+      { id: 6, name: "戀人 (The Lovers)", image: "https://upload.wikimedia.org/wikipedia/commons/d/db/RWS_Tarot_06_Lovers.jpg" },
+      { id: 7, name: "戰車 (The Chariot)", image: "https://upload.wikimedia.org/wikipedia/commons/9/9b/RWS_Tarot_07_Chariot.jpg" },
+      { id: 8, name: "力量 (Strength)", image: "https://upload.wikimedia.org/wikipedia/commons/f/f5/RWS_Tarot_08_Strength.jpg" },
+      { id: 9, name: "隱士 (The Hermit)", image: "https://upload.wikimedia.org/wikipedia/commons/4/4d/RWS_Tarot_09_Hermit.jpg" },
+      { id: 10, name: "命運之輪 (Wheel of Fortune)", image: "https://upload.wikimedia.org/wikipedia/commons/3/3c/RWS_Tarot_10_Wheel_of_Fortune.jpg" },
+      { id: 11, name: "正義 (Justice)", image: "https://upload.wikimedia.org/wikipedia/commons/e/e0/RWS_Tarot_11_Justice.jpg" },
+      { id: 12, name: "倒吊人 (The Hanged Man)", image: "https://upload.wikimedia.org/wikipedia/commons/2/2b/RWS_Tarot_12_Hanged_Man.jpg" },
+      { id: 13, name: "死神 (Death)", image: "https://upload.wikimedia.org/wikipedia/commons/d/d7/RWS_Tarot_13_Death.jpg" },
+      { id: 14, name: "節制 (Temperance)", image: "https://upload.wikimedia.org/wikipedia/commons/f/f8/RWS_Tarot_14_Temperance.jpg" },
+      { id: 15, name: "惡魔 (The Devil)", image: "https://upload.wikimedia.org/wikipedia/commons/5/55/RWS_Tarot_15_Devil.jpg" },
+      { id: 16, name: "高塔 (The Tower)", image: "https://upload.wikimedia.org/wikipedia/commons/5/53/RWS_Tarot_16_Tower.jpg" },
+      { id: 17, name: "星星 (The Star)", image: "https://upload.wikimedia.org/wikipedia/commons/d/db/RWS_Tarot_17_Star.jpg" },
+      { id: 18, name: "月亮 (The Moon)", image: "https://upload.wikimedia.org/wikipedia/commons/7/7f/RWS_Tarot_18_Moon.jpg" },
+      { id: 19, name: "太陽 (The Sun)", image: "https://upload.wikimedia.org/wikipedia/commons/1/17/RWS_Tarot_19_Sun.jpg" },
+      { id: 20, name: "審判 (Judgement)", image: "https://upload.wikimedia.org/wikipedia/commons/d/dd/RWS_Tarot_20_Judgement.jpg" },
+      { id: 21, name: "世界 (The World)", image: "https://upload.wikimedia.org/wikipedia/commons/f/ff/RWS_Tarot_21_World.jpg" },
+
+      // 權杖牌組 (Wands)
+      { id: 22, name: "權杖一 (Ace of Wands)", image: "https://upload.wikimedia.org/wikipedia/commons/1/11/Wands01.jpg" },
+      { id: 23, name: "權杖二 (Two of Wands)", image: "https://upload.wikimedia.org/wikipedia/commons/0/0f/Wands02.jpg" },
+      { id: 24, name: "權杖三 (Three of Wands)", image: "https://upload.wikimedia.org/wikipedia/commons/f/ff/Wands03.jpg" },
+      { id: 25, name: "權杖四 (Four of Wands)", image: "https://upload.wikimedia.org/wikipedia/commons/a/a4/Wands04.jpg" },
+      { id: 26, name: "權杖五 (Five of Wands)", image: "https://upload.wikimedia.org/wikipedia/commons/9/9d/Wands05.jpg" },
+      { id: 27, name: "權杖六 (Six of Wands)", image: "https://upload.wikimedia.org/wikipedia/commons/3/3b/Wands06.jpg" },
+      { id: 28, name: "權杖七 (Seven of Wands)", image: "https://upload.wikimedia.org/wikipedia/commons/e/e4/Wands07.jpg" },
+      { id: 29, name: "權杖八 (Eight of Wands)", image: "https://upload.wikimedia.org/wikipedia/commons/6/6b/Wands08.jpg" },
+      { id: 30, name: "權杖九 (Nine of Wands)", image: "https://upload.wikimedia.org/wikipedia/commons/4/4d/Tarot_Nine_of_Wands.jpg" },
+      { id: 31, name: "權杖十 (Ten of Wands)", image: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Wands10.jpg" },
+      { id: 32, name: "權杖侍者 (Page of Wands)", image: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Wands11.jpg" },
+      { id: 33, name: "權杖騎士 (Knight of Wands)", image: "https://upload.wikimedia.org/wikipedia/commons/1/16/Wands12.jpg" },
+      { id: 34, name: "權杖王后 (Queen of Wands)", image: "https://upload.wikimedia.org/wikipedia/commons/0/08/Wands13.jpg" },
+      { id: 35, name: "權杖國王 (King of Wands)", image: "https://upload.wikimedia.org/wikipedia/commons/c/ce/Wands14.jpg" },
+
+      // 聖杯牌組 (Cups)
+      { id: 36, name: "聖杯一 (Ace of Cups)", image: "https://upload.wikimedia.org/wikipedia/commons/3/36/Cups01.jpg" },
+      { id: 37, name: "聖杯二 (Two of Cups)", image: "https://upload.wikimedia.org/wikipedia/commons/f/f8/Cups02.jpg" },
+      { id: 38, name: "聖杯三 (Three of Cups)", image: "https://upload.wikimedia.org/wikipedia/commons/7/7a/Cups03.jpg" },
+      { id: 39, name: "聖杯四 (Four of Cups)", image: "https://upload.wikimedia.org/wikipedia/commons/3/35/Cups04.jpg" },
+      { id: 40, name: "聖杯五 (Five of Cups)", image: "https://upload.wikimedia.org/wikipedia/commons/d/d7/Cups05.jpg" },
+      { id: 41, name: "聖杯六 (Six of Cups)", image: "https://upload.wikimedia.org/wikipedia/commons/1/17/Cups06.jpg" },
+      { id: 42, name: "聖杯七 (Seven of Cups)", image: "https://upload.wikimedia.org/wikipedia/commons/a/ae/Cups07.jpg" },
+      { id: 43, name: "聖杯八 (Eight of Cups)", image: "https://upload.wikimedia.org/wikipedia/commons/6/60/Cups08.jpg" },
+      { id: 44, name: "聖杯九 (Nine of Cups)", image: "https://upload.wikimedia.org/wikipedia/commons/2/24/Cups09.jpg" },
+      { id: 45, name: "聖杯十 (Ten of Cups)", image: "https://upload.wikimedia.org/wikipedia/commons/8/84/Cups10.jpg" },
+      { id: 46, name: "聖杯侍者 (Page of Cups)", image: "https://upload.wikimedia.org/wikipedia/commons/a/ad/Cups11.jpg" },
+      { id: 47, name: "聖杯騎士 (Knight of Cups)", image: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Cups12.jpg" },
+      { id: 48, name: "聖杯王后 (Queen of Cups)", image: "https://upload.wikimedia.org/wikipedia/commons/6/62/Cups13.jpg" },
+      { id: 49, name: "聖杯國王 (King of Cups)", image: "https://upload.wikimedia.org/wikipedia/commons/0/04/Cups14.jpg" },
+
+      // 寶劍牌組 (Swords)
+      { id: 50, name: "寶劍一 (Ace of Swords)", image: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Swords01.jpg" },
+      { id: 51, name: "寶劍二 (Two of Swords)", image: "https://upload.wikimedia.org/wikipedia/commons/9/9e/Swords02.jpg" },
+      { id: 52, name: "寶劍三 (Three of Swords)", image: "https://upload.wikimedia.org/wikipedia/commons/0/02/Swords03.jpg" },
+      { id: 53, name: "寶劍四 (Four of Swords)", image: "https://upload.wikimedia.org/wikipedia/commons/b/bf/Swords04.jpg" },
+      { id: 54, name: "寶劍五 (Five of Swords)", image: "https://upload.wikimedia.org/wikipedia/commons/2/23/Swords05.jpg" },
+      { id: 55, name: "寶劍六 (Six of Swords)", image: "https://upload.wikimedia.org/wikipedia/commons/2/29/Swords06.jpg" },
+      { id: 56, name: "寶劍七 (Seven of Swords)", image: "https://upload.wikimedia.org/wikipedia/commons/3/34/Swords07.jpg" },
+      { id: 57, name: "寶劍八 (Eight of Swords)", image: "https://upload.wikimedia.org/wikipedia/commons/a/a7/Swords08.jpg" },
+      { id: 58, name: "寶劍九 (Nine of Swords)", image: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Swords09.jpg" },
+      { id: 59, name: "寶劍十 (Ten of Swords)", image: "https://upload.wikimedia.org/wikipedia/commons/d/d4/Swords10.jpg" },
+      { id: 60, name: "寶劍侍者 (Page of Swords)", image: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Swords11.jpg" },
+      { id: 61, name: "寶劍騎士 (Knight of Swords)", image: "https://upload.wikimedia.org/wikipedia/commons/b/b0/Swords12.jpg" },
+      { id: 62, name: "寶劍王后 (Queen of Swords)", image: "https://upload.wikimedia.org/wikipedia/commons/d/d4/Swords13.jpg" },
+      { id: 63, name: "寶劍國王 (King of Swords)", image: "https://upload.wikimedia.org/wikipedia/commons/3/33/Swords14.jpg" },
+
+      // 錢幣牌組 (Pentacles)
+      { id: 64, name: "錢幣一 (Ace of Pentacles)", image: "https://upload.wikimedia.org/wikipedia/commons/f/fd/Pents01.jpg" },
+      { id: 65, name: "錢幣二 (Two of Pentacles)", image: "https://upload.wikimedia.org/wikipedia/commons/9/9f/Pents02.jpg" },
+      { id: 66, name: "錢幣三 (Three of Pentacles)", image: "https://upload.wikimedia.org/wikipedia/commons/4/42/Pents03.jpg" },
+      { id: 67, name: "錢幣四 (Four of Pentacles)", image: "https://upload.wikimedia.org/wikipedia/commons/3/35/Pents04.jpg" },
+      { id: 68, name: "錢幣五 (Five of Pentacles)", image: "https://upload.wikimedia.org/wikipedia/commons/9/96/Pents05.jpg" },
+      { id: 69, name: "錢幣六 (Six of Pentacles)", image: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Pents06.jpg" },
+      { id: 70, name: "錢幣七 (Seven of Pentacles)", image: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Pents07.jpg" },
+      { id: 71, name: "錢幣八 (Eight of Pentacles)", image: "https://upload.wikimedia.org/wikipedia/commons/4/49/Pents08.jpg" },
+      { id: 72, name: "錢幣九 (Nine of Pentacles)", image: "https://upload.wikimedia.org/wikipedia/commons/f/f0/Pents09.jpg" },
+      { id: 73, name: "錢幣十 (Ten of Pentacles)", image: "https://upload.wikimedia.org/wikipedia/commons/4/42/Pents10.jpg" },
+      { id: 74, name: "錢幣侍者 (Page of Pentacles)", image: "https://upload.wikimedia.org/wikipedia/commons/e/ec/Pents11.jpg" },
+      { id: 75, name: "錢幣騎士 (Knight of Pentacles)", image: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Pents12.jpg" },
+      { id: 76, name: "錢幣王后 (Queen of Pentacles)", image: "https://upload.wikimedia.org/wikipedia/commons/8/88/Pents13.jpg" },
+      { id: 77, name: "錢幣國王 (King of Pentacles)", image: "https://upload.wikimedia.org/wikipedia/commons/1/1c/Pents14.jpg" }
+    ];
+
+    function createCardElement(c, label) {
+      const cardBox = document.createElement('div');
+      cardBox.className = 'flex flex-col items-center flex-1 min-w-[90px] max-w-[120px]';
+      cardBox.innerHTML = `
+        <span class="text-[11px] text-amber-300 mb-1 font-semibold text-center line-clamp-1">${label}</span>
+        <div class="w-full aspect-[2/3] bg-slate-900 border border-slate-700 rounded-lg overflow-hidden shadow-md">
+          <img src="${c.image}" alt="${c.name}" class="w-full h-full object-cover transition duration-300 ${c.isReversed ? 'rotate-180' : ''}">
+        </div>
+        <span class="text-xs text-slate-200 mt-1 font-medium text-center line-clamp-1">${c.name.split(' ')[0]}</span>
+        <span class="text-[10px] px-1.5 py-0.5 rounded ${c.isReversed ? 'bg-rose-950 text-rose-300 border border-rose-800/40' : 'bg-emerald-950 text-emerald-300 border border-emerald-800/40'} mt-0.5 font-bold">
+          ${c.isReversed ? '逆位' : '正位'}
+        </span>
+      `;
+      return cardBox;
+    }
+
+    async function startSpread(type) {
+      let count = 1;
+      let positionLabels = ['核心指引'];
+
+      if (type === 'three') {
+        count = 3;
+        positionLabels = ['過去 / 根源', '現在 / 現狀', '未來 / 指引'];
+      } else if (type === 'five') {
+        count = 5;
+        positionLabels = ['1. 現狀核心', '2. 障礙挑戰', '3. 潛在過去', '4. 近期未來', '5. 最終指引'];
+      }
+
+      const question = document.getElementById('user-question').value.trim();
+      const display = document.getElementById('cards-display');
+      display.innerHTML = '';
+
+      // 78 張隨機洗牌
+      const shuffled = [...tarotDeck].sort(() => 0.5 - Math.random());
+      const selected = shuffled.slice(0, count).map(card => ({
+        ...card,
+        isReversed: Math.random() < 0.5
+      }));
+
+      // 排版呈現：五牌陣使用響應式彈性排版
+      const cardContainer = document.createElement('div');
+      cardContainer.className = 'w-full flex flex-wrap justify-center gap-2 md:gap-3';
+      selected.forEach((c, idx) => {
+        cardContainer.appendChild(createCardElement(c, positionLabels[idx]));
+      });
+      display.appendChild(cardContainer);
+
+      // 呼叫後端 Gemini
+      const aiSection = document.getElementById('ai-section');
+      const aiLoading = document.getElementById('ai-loading');
+      const aiContent = document.getElementById('ai-content');
+
+      aiSection.classList.remove('hidden');
+      aiLoading.classList.remove('hidden');
+      aiContent.classList.add('hidden');
+      aiContent.innerText = '';
+
+      try {
+        const res = await fetch('/api/interpret', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ question, spreadType: type, cards: selected })
+        });
+        const data = await res.json();
+
+        aiLoading.classList.add('hidden');
+        aiContent.classList.remove('hidden');
+        aiContent.innerText = data.interpretation || '解讀失敗，請重試。';
+      } catch (err) {
+        aiLoading.classList.add('hidden');
+        aiContent.classList.remove('hidden');
+        aiContent.innerText = '連線伺服器時發生問題，請稍候再試。';
+      }
+    }
+  </script>
+</body>
+</html>
