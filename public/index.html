@@ -50,95 +50,95 @@
   </div>
 
   <script>
-    // 78 張經典萊德偉特塔羅牌資料庫
+    // 78 張完整萊德偉特塔羅牌資料庫
     const tarotDeck = [
-      // 22 張大阿爾克那
-      { id: 0, name: "愚者 (The Fool)", image: "https://upload.wikimedia.org/wikipedia/commons/9/90/RWS_Tarot_00_Fool.jpg" },
-      { id: 1, name: "魔術師 (The Magician)", image: "https://upload.wikimedia.org/wikipedia/commons/d/de/RWS_Tarot_01_Magician.jpg" },
-      { id: 2, name: "女祭司 (The High Priestess)", image: "https://upload.wikimedia.org/wikipedia/commons/8/88/RWS_Tarot_02_High_Priestess.jpg" },
-      { id: 3, name: "皇后 (The Empress)", image: "https://upload.wikimedia.org/wikipedia/commons/d/d2/RWS_Tarot_03_Empress.jpg" },
-      { id: 4, name: "皇帝 (The Emperor)", image: "https://upload.wikimedia.org/wikipedia/commons/c/c3/RWS_Tarot_04_Emperor.jpg" },
-      { id: 5, name: "教皇 (The Hierophant)", image: "https://upload.wikimedia.org/wikipedia/commons/8/8d/RWS_Tarot_05_Hierophant.jpg" },
-      { id: 6, name: "戀人 (The Lovers)", image: "https://upload.wikimedia.org/wikipedia/commons/d/db/RWS_Tarot_06_Lovers.jpg" },
-      { id: 7, name: "戰車 (The Chariot)", image: "https://upload.wikimedia.org/wikipedia/commons/9/9b/RWS_Tarot_07_Chariot.jpg" },
-      { id: 8, name: "力量 (Strength)", image: "https://upload.wikimedia.org/wikipedia/commons/f/f5/RWS_Tarot_08_Strength.jpg" },
-      { id: 9, name: "隱士 (The Hermit)", image: "https://upload.wikimedia.org/wikipedia/commons/4/4d/RWS_Tarot_09_Hermit.jpg" },
-      { id: 10, name: "命運之輪 (Wheel of Fortune)", image: "https://upload.wikimedia.org/wikipedia/commons/3/3c/RWS_Tarot_10_Wheel_of_Fortune.jpg" },
-      { id: 11, name: "正義 (Justice)", image: "https://upload.wikimedia.org/wikipedia/commons/e/e0/RWS_Tarot_11_Justice.jpg" },
-      { id: 12, name: "倒吊人 (The Hanged Man)", image: "https://upload.wikimedia.org/wikipedia/commons/2/2b/RWS_Tarot_12_Hanged_Man.jpg" },
-      { id: 13, name: "死神 (Death)", image: "https://upload.wikimedia.org/wikipedia/commons/d/d7/RWS_Tarot_13_Death.jpg" },
-      { id: 14, name: "節制 (Temperance)", image: "https://upload.wikimedia.org/wikipedia/commons/f/f8/RWS_Tarot_14_Temperance.jpg" },
-      { id: 15, name: "惡魔 (The Devil)", image: "https://upload.wikimedia.org/wikipedia/commons/5/55/RWS_Tarot_15_Devil.jpg" },
-      { id: 16, name: "高塔 (The Tower)", image: "https://upload.wikimedia.org/wikipedia/commons/5/53/RWS_Tarot_16_Tower.jpg" },
-      { id: 17, name: "星星 (The Star)", image: "https://upload.wikimedia.org/wikipedia/commons/d/db/RWS_Tarot_17_Star.jpg" },
-      { id: 18, name: "月亮 (The Moon)", image: "https://upload.wikimedia.org/wikipedia/commons/7/7f/RWS_Tarot_18_Moon.jpg" },
-      { id: 19, name: "太陽 (The Sun)", image: "https://upload.wikimedia.org/wikipedia/commons/1/17/RWS_Tarot_19_Sun.jpg" },
-      { id: 20, name: "審判 (Judgement)", image: "https://upload.wikimedia.org/wikipedia/commons/d/dd/RWS_Tarot_20_Judgement.jpg" },
-      { id: 21, name: "世界 (The World)", image: "https://upload.wikimedia.org/wikipedia/commons/f/ff/RWS_Tarot_21_World.jpg" },
+      // 22 張大阿爾克那 (Major Arcana)
+      { id: 0, name: "愚者 (The Fool)", nameEn: "The Fool", image: "https://upload.wikimedia.org/wikipedia/commons/9/90/RWS_Tarot_00_Fool.jpg", upright: { keywords: ["新的開始", "純真", "自發性", "自由", "冒險"], desc: "象徵踏入未知的旅程，帶著純粹的信心向前邁進。" }, reversed: { keywords: ["魯莽", "輕率", "缺乏方向", "猶豫不決", "盲目冒險"], desc: "行動過於衝動，忽略了潛在的現實風險。" } },
+      { id: 1, name: "魔術師 (The Magician)", nameEn: "The Magician", image: "https://upload.wikimedia.org/wikipedia/commons/d/de/RWS_Tarot_01_Magician.jpg", upright: { keywords: ["顯化", "創造力", "意志力", "資源整合", "行動力"], desc: "已具備所有必要工具，將想法化為現實的最佳時機。" }, reversed: { keywords: ["欺瞞", "操縱", "才華未展", "溝通不良", "計畫受阻"], desc: "能力未妥善發揮，或受到不實話術與幻象干擾。" } },
+      { id: 2, name: "女祭司 (The High Priestess)", nameEn: "The High Priestess", image: "https://upload.wikimedia.org/wikipedia/commons/8/88/RWS_Tarot_02_High_Priestess.jpg", upright: { keywords: ["直覺", "潛意識", "內在智慧", "神秘", "靜心"], desc: "相信直覺與第六感，平靜觀察往往能發現真相。" }, reversed: { keywords: ["忽視直覺", "情緒壓抑", "表面化", "秘密曝光", "胡思亂想"], desc: "被外在雜訊淹沒，忽略了內在真實聲音。" } },
+      { id: 3, name: "皇后 (The Empress)", nameEn: "The Empress", image: "https://upload.wikimedia.org/wikipedia/commons/d/d2/RWS_Tarot_03_Empress.jpg", upright: { keywords: ["豐盛", "母性", "滋養", "美與和諧", "創造力"], desc: "感受生命與物質的富足，給予並接受溫柔關懷。" }, reversed: { keywords: ["過度依賴", "創造力阻滯", "空虛", "忽略自我", "控制欲"], desc: "在照顧他人與自我關愛之間失去平衡。" } },
+      { id: 4, name: "皇帝 (The Emperor)", nameEn: "The Emperor", image: "https://upload.wikimedia.org/wikipedia/commons/c/c3/RWS_Tarot_04_Emperor.jpg", upright: { keywords: ["權威", "秩序", "穩定", "領導力", "紀律"], desc: "建立清晰規範與結構，以理性與擔當掌管全局。" }, reversed: { keywords: ["專制", "控制過度", "缺乏紀律", "僵化", "權力鬥爭"], desc: "過於固執獨斷，或者因缺乏自律而感到失控。" } },
+      { id: 5, name: "教皇 (The Hierophant)", nameEn: "The Hierophant", image: "https://upload.wikimedia.org/wikipedia/commons/8/8d/RWS_Tarot_05_Hierophant.jpg", upright: { keywords: ["傳統", "導師", "靈性指導", "信仰", "群體認同"], desc: "尋求經驗豐富者的建議，遵循制度或道德指引。" }, reversed: { keywords: ["打破傳統", "教條主義", "盲從", "叛逆", "獨立思考"], desc: "挑戰陳舊規範，尋找屬於自己的獨特道路。" } },
+      { id: 6, name: "戀人 (The Lovers)", nameEn: "The Lovers", image: "https://upload.wikimedia.org/wikipedia/commons/d/db/RWS_Tarot_06_Lovers.jpg", upright: { keywords: ["愛與連結", "心靈契合", "重大抉擇", "價值觀統合"], desc: "真摯的合作與情感連結，需依循內心價值作抉擇。" }, reversed: { keywords: ["價值觀衝突", "溝通斷裂", "錯誤抉擇", "不和諧"], desc: "面對分歧或誘惑，需重新審視雙方共識。" } },
+      { id: 7, name: "戰車 (The Chariot)", nameEn: "The Chariot", image: "https://upload.wikimedia.org/wikipedia/commons/9/9b/RWS_Tarot_07_Chariot.jpg", upright: { keywords: ["意志力", "勝利", "克服困難", "自律", "明確方向"], desc: "掌控相衝突的力量，專注目標勇往直前。" }, reversed: { keywords: ["失控", "方向迷失", "衝動", "挫折", "侵略性"], desc: "缺乏耐性或方向偏離，應先慢下腳步重整節奏。" } },
+      { id: 8, name: "力量 (Strength)", nameEn: "Strength", image: "https://upload.wikimedia.org/wikipedia/commons/f/f5/RWS_Tarot_08_Strength.jpg", upright: { keywords: ["內在力量", "勇氣", "以柔克剛", "耐心", "同理心"], desc: "以包容與溫柔撫平內在獸性與恐懼。" }, reversed: { keywords: ["自我懷疑", "軟弱", "情緒失控", "缺乏自信", "傲慢"], desc: "內在信心動搖，需學會溫柔接納自己的脆弱。" } },
+      { id: 9, name: "隱士 (The Hermit)", nameEn: "The Hermit", image: "https://upload.wikimedia.org/wikipedia/commons/4/4d/RWS_Tarot_09_Hermit.jpg", upright: { keywords: ["內省", "獨處", "心靈尋求", "智慧之光", "指引"], desc: "退離塵囂向內探索，在安靜中尋找生命答案。" }, reversed: { keywords: ["孤立", "逃避現實", "過度封閉", "寂寞", "排斥外界"], desc: "過度封閉自我，應適時向外界尋求交流與幫助。" } },
+      { id: 10, name: "命運之輪 (Wheel of Fortune)", nameEn: "Wheel of Fortune", image: "https://upload.wikimedia.org/wikipedia/commons/3/3c/RWS_Tarot_10_Wheel_of_Fortune.jpg", upright: { keywords: ["轉折點", "命運循環", "好運", "順應變化", "契機"], desc: "生命輪轉的時刻，順應變局將帶來轉機。" }, reversed: { keywords: ["抗拒改變", "低潮期", "挫折", "反覆不順", "惡性循環"], desc: "面臨變動感到無力，需看破循環找到突破點。" } },
+      { id: 11, name: "正義 (Justice)", nameEn: "Justice", image: "https://upload.wikimedia.org/wikipedia/commons/e/e0/RWS_Tarot_11_Justice.jpg", upright: { keywords: ["公平", "客觀", "因果責任", "真相", "誠實裁決"], desc: "保持客觀誠實，承擔過去決策所帶來的因果。" }, reversed: { keywords: ["不公", "偏見", "逃避責任", "道德困境", "失衡"], desc: "面臨不公或自我偏私，需重新找回內心衡準。" } },
+      { id: 12, name: "倒吊人 (The Hanged Man)", nameEn: "The Hanged Man", image: "https://upload.wikimedia.org/wikipedia/commons/2/2b/RWS_Tarot_12_Hanged_Man.jpg", upright: { keywords: ["換位思考", "暫停等待", "臣服", "自我奉獻", "新視角"], desc: "以不同視角觀看世界，短暫停滯是為了更深層領悟。" }, reversed: { keywords: ["徒勞無功", "無謂犧牲", "抗拒停頓", "停滯不前"], desc: "堅持不願妥協或做無效犧牲，需主動做出改變。" } },
+      { id: 13, name: "死神 (Death)", nameEn: "Death", image: "https://upload.wikimedia.org/wikipedia/commons/d/d7/RWS_Tarot_13_Death.jpg", upright: { keywords: ["結束與新生", "徹底轉化", "釋懷放下", "過渡轉折"], desc: "舊階段的終結，為嶄新的生機騰出空間。" }, reversed: { keywords: ["抗拒結束", "執著過去", "恐懼改變", "死拖活賴"], desc: "緊抓過期事物不放，阻礙了新生命的進入。" } },
+      { id: 14, name: "節制 (Temperance)", nameEn: "Temperance", image: "https://upload.wikimedia.org/wikipedia/commons/f/f8/RWS_Tarot_14_Temperance.jpg", upright: { keywords: ["調和中庸", "耐心平衡", "身心療癒", "融合昇華"], desc: "在兩極中取得完美平衡，以溫和耐心促成和諧。" }, reversed: { keywords: ["失衡", "極端", "衝突過度", "缺乏耐心", "急躁"], desc: "生活或情緒失衡，急於求成導致能量耗竭。" } },
+      { id: 15, name: "惡魔 (The Devil)", nameEn: "The Devil", image: "https://upload.wikimedia.org/wikipedia/commons/5/55/RWS_Tarot_15_Devil.jpg", upright: { keywords: ["執念束縛", "物質誘惑", "陰暗面", "成癮依賴", "幻象"], desc: "看清自設的心理牢籠與物質慾望，找回自由意志。" }, reversed: { keywords: ["掙脫束縛", "重獲自由", "覺察覺醒", "斷絕依賴"], desc: "意識到不良執著，正在邁向解脫與新生。" } },
+      { id: 16, name: "高塔 (The Tower)", nameEn: "The Tower", image: "https://upload.wikimedia.org/wikipedia/commons/5/53/RWS_Tarot_16_Tower.jpg", upright: { keywords: ["突如其來的劇變", "幻象破滅", "震撼覺醒", "瓦解"], desc: "虛妄結構徹底瓦解，雖有震撼卻是重獲真實的契機。" }, reversed: { keywords: ["推遲危機", "恐懼崩潰", "重建廢墟", "餘波蕩漾"], desc: "避免面對不可避免的衝擊，或是劇變後的復原期。" } },
+      { id: 17, name: "星星 (The Star)", nameEn: "The Star", image: "https://upload.wikimedia.org/wikipedia/commons/d/db/RWS_Tarot_17_Star.jpg", upright: { keywords: ["希望", "療癒", "靈感啟發", "寧靜信任", "指引之光"], desc: "暴風雨後的平靜，心中充滿希望與神聖指引。" }, reversed: { keywords: ["失去信心", "絕望失望", "靈感枯竭", "悲觀盲目"], desc: "短暫迷失方向，需重拾對未來與自己的信任。" } },
+      { id: 18, name: "月亮 (The Moon)", nameEn: "The Moon", image: "https://upload.wikimedia.org/wikipedia/commons/7/7f/RWS_Tarot_18_Moon.jpg", upright: { keywords: ["潛意識恐懼", "迷惘不安", "幻象迷霧", "直覺夢境"], desc: "前路不明引起內心恐懼，留意夢境與直覺的提示。" }, reversed: { keywords: ["迷霧漸散", "克服恐懼", "真相大白", "情緒平復"], desc: "不安情緒逐漸釋放，事情真相逐漸清晰浮現。" } },
+      { id: 19, name: "太陽 (The Sun)", nameEn: "The Sun", image: "https://upload.wikimedia.org/wikipedia/commons/1/17/RWS_Tarot_19_Sun.jpg", upright: { keywords: ["喜悅光明", "成功", "生命力", "清晰熱情", "豐收"], desc: "充滿自信與光明，萬事萬物都在陽光下蓬勃發展。" }, reversed: { keywords: ["暫時陰霾", "延遲成功", "過度樂觀", "精力耗損"], desc: "光明依然存在，只是暫時被烏雲遮蔽，保持信心。" } },
+      { id: 20, name: "審判 (Judgement)", nameEn: "Judgement", image: "https://upload.wikimedia.org/wikipedia/commons/d/dd/RWS_Tarot_20_Judgement.jpg", upright: { keywords: ["覺醒召喚", "重生洗禮", "重大審視", "徹底解脫"], desc: "聽從靈魂的召喚，放下舊有包袱邁向全新人生。" }, reversed: { keywords: ["自我懷疑", "忽視呼喚", "拒絕反省", "悔恨不甘"], desc: "害怕面對真正的決定，因猶豫而延誤了覺醒。" } },
+      { id: 21, name: "世界 (The World)", nameEn: "The World", image: "https://upload.wikimedia.org/wikipedia/commons/f/ff/RWS_Tarot_21_World.jpg", upright: { keywords: ["圓滿達成", "整合完整", "旅程終點與新起點", "成功"], desc: "歷經考驗達到圓滿，生命旅程的偉大里程碑。" }, reversed: { keywords: ["臨門一腳", "未完結", "缺乏收尾", "延宕挫折"], desc: "離成功只差最後一步，需保持耐心收尾收官。" } },
 
       // 權杖牌組 (Wands)
-      { id: 22, name: "權杖一 (Ace of Wands)", image: "https://upload.wikimedia.org/wikipedia/commons/1/11/Wands01.jpg" },
-      { id: 23, name: "權杖二 (Two of Wands)", image: "https://upload.wikimedia.org/wikipedia/commons/0/0f/Wands02.jpg" },
-      { id: 24, name: "權杖三 (Three of Wands)", image: "https://upload.wikimedia.org/wikipedia/commons/f/ff/Wands03.jpg" },
-      { id: 25, name: "權杖四 (Four of Wands)", image: "https://upload.wikimedia.org/wikipedia/commons/a/a4/Wands04.jpg" },
-      { id: 26, name: "權杖五 (Five of Wands)", image: "https://upload.wikimedia.org/wikipedia/commons/9/9d/Wands05.jpg" },
-      { id: 27, name: "權杖六 (Six of Wands)", image: "https://upload.wikimedia.org/wikipedia/commons/3/3b/Wands06.jpg" },
-      { id: 28, name: "權杖七 (Seven of Wands)", image: "https://upload.wikimedia.org/wikipedia/commons/e/e4/Wands07.jpg" },
-      { id: 29, name: "權杖八 (Eight of Wands)", image: "https://upload.wikimedia.org/wikipedia/commons/6/6b/Wands08.jpg" },
-      { id: 30, name: "權杖九 (Nine of Wands)", image: "https://upload.wikimedia.org/wikipedia/commons/4/4d/Tarot_Nine_of_Wands.jpg" },
-      { id: 31, name: "權杖十 (Ten of Wands)", image: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Wands10.jpg" },
-      { id: 32, name: "權杖侍者 (Page of Wands)", image: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Wands11.jpg" },
-      { id: 33, name: "權杖騎士 (Knight of Wands)", image: "https://upload.wikimedia.org/wikipedia/commons/1/16/Wands12.jpg" },
-      { id: 34, name: "權杖王后 (Queen of Wands)", image: "https://upload.wikimedia.org/wikipedia/commons/0/08/Wands13.jpg" },
-      { id: 35, name: "權杖國王 (King of Wands)", image: "https://upload.wikimedia.org/wikipedia/commons/c/ce/Wands14.jpg" },
+      { id: 22, name: "權杖一 (Ace of Wands)", nameEn: "Ace of Wands", image: "https://upload.wikimedia.org/wikipedia/commons/1/11/Wands01.jpg", upright: { keywords: ["靈感萌芽", "新行動", "熱情衝勁", "創造力爆發"], desc: "全新的創造契機與動力，勇敢點燃熱情的火花。" }, reversed: { keywords: ["缺乏動力", "方向受阻", "延遲", "熱情消退"], desc: "衝勁不足或計畫受阻，需要重新審視初衷。" } },
+      { id: 23, name: "權杖二 (Two of Wands)", nameEn: "Two of Wands", image: "https://upload.wikimedia.org/wikipedia/commons/0/0f/Wands02.jpg", upright: { keywords: ["遠景規劃", "出發決策", "掌控掌控", "未來展望"], desc: "立足於現狀，展望更廣闊的未來世界與計畫。" }, reversed: { keywords: ["猶豫不決", "恐懼未知", "計畫受限", "安於現狀"], desc: "害怕踏出舒適圈，或對未來的規劃缺乏信心。" } },
+      { id: 24, name: "權杖三 (Three of Wands)", nameEn: "Three of Wands", image: "https://upload.wikimedia.org/wikipedia/commons/f/ff/Wands03.jpg", upright: { keywords: ["拓展遠見", "成果初現", "跨界合作", "探索冒險"], desc: "過去的努力開始看見回報，視野開闊向外擴張。" }, reversed: { keywords: ["進展延宕", "預期落空", "合作受阻", "目光短淺"], desc: "成果未如預期迅速，需耐心等待時機熟成。" } },
+      { id: 25, name: "權杖四 (Four of Wands)", nameEn: "Four of Wands", image: "https://upload.wikimedia.org/wikipedia/commons/a/a4/Wands04.jpg", upright: { keywords: ["慶祝喜悅", "家庭安穩", "和諧歸屬", "階段性成就"], desc: "溫馨慶祝與團聚時刻，打下堅實安穩的基礎。" }, reversed: { keywords: ["家庭衝突", "慶祝延後", "缺乏安定感", "暫時不和"], desc: "人際或家庭內部有些許摩擦，需要包容溝通。" } },
+      { id: 26, name: "權杖五 (Five of Wands)", nameEn: "Five of Wands", image: "https://upload.wikimedia.org/wikipedia/commons/9/9d/Wands05.jpg", upright: { keywords: ["競爭衝突", "意見分歧", "混亂考驗", "互相切磋"], desc: "各方爭執不下或激烈的競爭，考驗協調與耐力。" }, reversed: { keywords: ["化解爭端", "妥協合作", "避免衝突", "精疲力竭"], desc: "厭倦無謂的爭吵，開始尋求共識或選擇退讓。" } },
+      { id: 27, name: "權杖六 (Six of Wands)", nameEn: "Six of Wands", image: "https://upload.wikimedia.org/wikipedia/commons/3/3b/Wands06.jpg", upright: { keywords: ["勝利榮耀", "公眾認可", "自信風光", "好消息"], desc: "努力獲得眾人認可與讚揚，取得階段性勝利。" }, reversed: { keywords: ["驕兵必敗", "未獲認可", "名譽受損", "延遲獲勝"], desc: "過度驕傲引起反感，或辛苦付出未被看見。" } },
+      { id: 28, name: "權杖七 (Seven of Wands)", nameEn: "Seven of Wands", image: "https://upload.wikimedia.org/wikipedia/commons/e/e4/Wands07.jpg", upright: { keywords: ["堅守立場", "克服挑戰", "捍衛成果", "勇敢不屈"], desc: "面對多方質疑與壓力，依然堅定站穩自己的位置。" }, reversed: { keywords: ["力不從心", "妥協放棄", "壓力過載", "寡不敵眾"], desc: "面對各方壓力感到筋疲力盡，需適度尋求外援。" } },
+      { id: 29, name: "權杖八 (Eight of Wands)", nameEn: "Eight of Wands", image: "https://upload.wikimedia.org/wikipedia/commons/6/6b/Wands08.jpg", upright: { keywords: ["迅速進展", "訊息傳遞", "飛速行動", "旅途啟程"], desc: "事情以極快速度向前推展，抓住當下的勢頭。" }, reversed: { keywords: ["進展停滯", "溝通延誤", "急躁出錯", "混亂失控"], desc: "因匆忙而出現差錯，或是訊息傳遞出現延宕。" } },
+      { id: 30, name: "權杖九 (Nine of Wands)", nameEn: "Nine of Wands", image: "https://upload.wikimedia.org/wikipedia/commons/4/4d/Tarot_Nine_of_Wands.jpg", upright: { keywords: ["最後防線", "韌性堅毅", "謹慎戒備", "堅持到底"], desc: "雖然傷痕累累，但勝利在望，守住最後的關卡。" }, reversed: { keywords: ["過度防衛", "筋疲力竭", "放棄退縮", "杯弓蛇影"], desc: "過度緊繃導致精神耗竭，防備心過重阻礙交流。" } },
+      { id: 31, name: "權杖十 (Ten of Wands)", nameEn: "Ten of Wands", image: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Wands10.jpg", upright: { keywords: ["重擔在肩", "過度承擔", "壓力極限", "責任艱辛"], desc: "一肩扛起過多責任，雖然沉重但終點已在眼前。" }, reversed: { keywords: ["放下重擔", "學會委派", "徹底崩潰", "釋放壓力"], desc: "學會拒絕與分擔責任，不再勉強自己全盤承受。" } },
+      { id: 32, name: "權杖侍者 (Page of Wands)", nameEn: "Page of Wands", image: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Wands11.jpg", upright: { keywords: ["熱情探索", "好奇求知", "好消息", "開創新局"], desc: "懷抱熱忱與好奇心的小冒險家，帶來振奮人心的消息。" }, reversed: { keywords: ["缺乏耐心", "三分鐘熱度", "遲鈍受阻", "幼稚衝動"], desc: "想法多但缺乏執行力，容易因衝動而草率行事。" } },
+      { id: 33, name: "權杖騎士 (Knight of Wands)", nameEn: "Knight of Wands", image: "https://upload.wikimedia.org/wikipedia/commons/1/16/Wands12.jpg", upright: { keywords: ["大膽果斷", "精力充沛", "勇猛直前", "冒險衝刺"], desc: "充滿行動力與魅力的騎士，不畏艱難直奔目標。" }, reversed: { keywords: ["魯莽急躁", "脾氣火爆", "虎頭蛇尾", "衝突爭吵"], desc: "行動過於急躁衝動，容易引發不必要的口角摩擦。" } },
+      { id: 34, name: "權杖王后 (Queen of Wands)", nameEn: "Queen of Wands", image: "https://upload.wikimedia.org/wikipedia/commons/0/08/Wands13.jpg", upright: { keywords: ["自信迷人", "熱情溫暖", "獨立堅強", "活力四射"], desc: "散發自信與耀眼光芒，以熱情感染身邊的所有人。" }, reversed: { keywords: ["嫉妒好勝", "專橫霸道", "情緒起伏", "自我懷疑"], desc: "自信心受挫轉為強勢霸道，容易因嫉妒而失衡。" } },
+      { id: 35, name: "權杖國王 (King of Wands)", nameEn: "King of Wands", image: "https://upload.wikimedia.org/wikipedia/commons/c/ce/Wands14.jpg", upright: { keywords: ["領袖魅力", "遠見卓識", "開創決策", "激勵鼓舞"], desc: "極具號召力與遠見的領導者，帶領團隊開疆闢土。" }, reversed: { keywords: ["專制獨裁", "衝動苛刻", "濫用權力", "期望過高"], desc: "管理風格過於嚴苛固執，容易忽視他人的感受。" } },
 
       // 聖杯牌組 (Cups)
-      { id: 36, name: "聖杯一 (Ace of Cups)", image: "https://upload.wikimedia.org/wikipedia/commons/3/36/Cups01.jpg" },
-      { id: 37, name: "聖杯二 (Two of Cups)", image: "https://upload.wikimedia.org/wikipedia/commons/f/f8/Cups02.jpg" },
-      { id: 38, name: "聖杯三 (Three of Cups)", image: "https://upload.wikimedia.org/wikipedia/commons/7/7a/Cups03.jpg" },
-      { id: 39, name: "聖杯四 (Four of Cups)", image: "https://upload.wikimedia.org/wikipedia/commons/3/35/Cups04.jpg" },
-      { id: 40, name: "聖杯五 (Five of Cups)", image: "https://upload.wikimedia.org/wikipedia/commons/d/d7/Cups05.jpg" },
-      { id: 41, name: "聖杯六 (Six of Cups)", image: "https://upload.wikimedia.org/wikipedia/commons/1/17/Cups06.jpg" },
-      { id: 42, name: "聖杯七 (Seven of Cups)", image: "https://upload.wikimedia.org/wikipedia/commons/a/ae/Cups07.jpg" },
-      { id: 43, name: "聖杯八 (Eight of Cups)", image: "https://upload.wikimedia.org/wikipedia/commons/6/60/Cups08.jpg" },
-      { id: 44, name: "聖杯九 (Nine of Cups)", image: "https://upload.wikimedia.org/wikipedia/commons/2/24/Cups09.jpg" },
-      { id: 45, name: "聖杯十 (Ten of Cups)", image: "https://upload.wikimedia.org/wikipedia/commons/8/84/Cups10.jpg" },
-      { id: 46, name: "聖杯侍者 (Page of Cups)", image: "https://upload.wikimedia.org/wikipedia/commons/a/ad/Cups11.jpg" },
-      { id: 47, name: "聖杯騎士 (Knight of Cups)", image: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Cups12.jpg" },
-      { id: 48, name: "聖杯王后 (Queen of Cups)", image: "https://upload.wikimedia.org/wikipedia/commons/6/62/Cups13.jpg" },
-      { id: 49, name: "聖杯國王 (King of Cups)", image: "https://upload.wikimedia.org/wikipedia/commons/0/04/Cups14.jpg" },
+      { id: 36, name: "聖杯一 (Ace of Cups)", nameEn: "Ace of Cups", image: "https://upload.wikimedia.org/wikipedia/commons/3/36/Cups01.jpg", upright: { keywords: ["愛之源頭", "情感萌芽", "直覺靈性", "同理慈悲"], desc: "情感與愛意滿溢的時刻，敞開心扉接納美好的連結。" }, reversed: { keywords: ["情感封閉", "空虛壓抑", "自我懷疑", "愛意消退"], desc: "封閉內心情感或感到失落，需先好好愛自己。" } },
+      { id: 37, name: "聖杯二 (Two of Cups)", nameEn: "Two of Cups", image: "https://upload.wikimedia.org/wikipedia/commons/f/f8/Cups02.jpg", upright: { keywords: ["心靈契合", "真摯合作", "相互吸引", "和諧夥伴"], desc: "雙方平等且真誠的交流，建立深厚的信任與情感。" }, reversed: { keywords: ["誤解隔閡", "夥伴分歧", "信任破裂", "單方面付出"], desc: "溝通不良造成疏離，需釐清彼此的期待與底線。" } },
+      { id: 38, name: "聖杯三 (Three of Cups)", nameEn: "Three of Cups", image: "https://upload.wikimedia.org/wikipedia/commons/7/7a/Cups03.jpg", upright: { keywords: ["歡聚慶祝", "友情支持", "群體分享", "社交喜悅"], desc: "與好友歡樂相聚，互相扶持與慶祝共同的成果。" }, reversed: { keywords: ["社交疲勞", "派系八卦", "過度放縱", "被孤立排擠"], desc: "社交場合中的小圈子與流言蜚語，引起身心疲累。" } },
+      { id: 39, name: "聖杯四 (Four of Cups)", nameEn: "Four of Cups", image: "https://upload.wikimedia.org/wikipedia/commons/3/35/Cups04.jpg", upright: { keywords: ["漠不關心", "倦怠冷淡", "自我沉思", "忽視機會"], desc: "陷入情緒低潮或倦怠中，忽略了身旁遞來的機會。" }, reversed: { keywords: ["重拾熱情", "看見機會", "走出低潮", "敞開心門"], desc: "開始走出厭倦與封閉，重新留意周遭的生活可能。" } },
+      { id: 40, name: "聖杯五 (Five of Cups)", nameEn: "Five of Cups", image: "https://upload.wikimedia.org/wikipedia/commons/d/d7/Cups05.jpg", upright: { keywords: ["悲傷失落", "悔恨遺憾", "專注傷痛", "分離告別"], desc: "為打翻的杯子哭泣，但別忘了身後依然有杯子挺立。" }, reversed: { keywords: ["釋懷走過", "接納療癒", "重新出發", "看見希望"], desc: "走出悲痛與遺憾，轉身看見依然存在的支持與生機。" } },
+      { id: 41, name: "聖杯六 (Six of Cups)", nameEn: "Six of Cups", image: "https://upload.wikimedia.org/wikipedia/commons/1/17/Cups06.jpg", upright: { keywords: ["純真回憶", "故人重逢", "童年溫暖", "善意饋贈"], desc: "重溫單純無瑕的美好時光，感受純粹的愛與照顧。" }, reversed: { keywords: ["沉湎過去", "抗拒成長", "擺脫童年陰影", "活在當下"], desc: "過度懷舊而逃避現實，需要往前看迎接成長挑戰。" } },
+      { id: 42, name: "聖杯七 (Seven of Cups)", nameEn: "Seven of Cups", image: "https://upload.wikimedia.org/wikipedia/commons/a/ae/Cups07.jpg", upright: { keywords: ["幻想空想", "選擇眾多", "誘惑迷霧", "願望白日夢"], desc: "眼花繚亂的選項與夢想，需抽絲剝繭回歸真實落點。" }, reversed: { keywords: ["認清現實", "看清真相", "做出具體選擇", "擺脫幻想"], desc: "打破不切實際的幻想，回歸務實並做出明確決定。" } },
+      { id: 43, name: "聖杯八 (Eight of Cups)", nameEn: "Eight of Cups", image: "https://upload.wikimedia.org/wikipedia/commons/6/60/Cups08.jpg", upright: { keywords: ["毅然離去", "尋求更高意義", "斷捨離", "心靈之旅"], desc: "物質雖充足但內心空虛，勇敢放下現狀尋找真諦。" }, reversed: { keywords: ["猶豫不決", "害怕改變", "裹足不前", "依戀舊境"], desc: "明明知道不適合，卻因恐懼未知而不敢果斷離開。" } },
+      { id: 44, name: "聖杯九 (Nine of Cups)", nameEn: "Nine of Cups", image: "https://upload.wikimedia.org/wikipedia/commons/2/24/Cups09.jpg", upright: { keywords: ["願望成真", "知足滿足", "物質與心靈豐盈", "享受"], desc: "美夢成真的許願牌，內心充滿安適、感恩與滿足。" }, reversed: { keywords: ["貪得無厭", "表面風光", "內在空虛", "過度自滿"], desc: "外表看似應有盡有，但靈魂深處依然感到空虛寂寞。" } },
+      { id: 45, name: "聖杯十 (Ten of Cups)", nameEn: "Ten of Cups", image: "https://upload.wikimedia.org/wikipedia/commons/8/84/Cups10.jpg", upright: { keywords: ["家庭幸福", "心靈圓滿", "彩虹祝福", "恆久和諧"], desc: "情感世界的至高幸福，家庭與重要關係和樂融融。" }, reversed: { keywords: ["家庭紛爭", "關係破裂", "價值觀不合", "表裡不一"], desc: "家庭或親密關係中暗藏矛盾，需要誠心化解隔閡。" } },
+      { id: 46, name: "聖杯侍者 (Page of Cups)", nameEn: "Page of Cups", image: "https://upload.wikimedia.org/wikipedia/commons/a/ad/Cups11.jpg", upright: { keywords: ["情感信使", "直覺靈感", "溫柔純真", "藝術浪漫"], desc: "帶來溫柔的情感訊號與意想不到的靈感驚喜。" }, reversed: { keywords: ["情緒化", "幼稚任性", "脆弱敏感", "逃避責任"], desc: "過度敏感玻璃心，容易因情緒波動而胡思亂想。" } },
+      { id: 47, name: "聖杯騎士 (Knight of Cups)", nameEn: "Knight of Cups", image: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Cups12.jpg", upright: { keywords: ["浪漫追求", "溫柔邀請", "跟隨內心", "優雅熱情"], desc: "如白馬王子般帶著誠摯愛意與邀請而來的守護者。" }, reversed: { keywords: ["不切實際", "情緒多變", "花言巧語", "逃避現實"], desc: "過度理想化或容易承諾卻難以兌現，需看清本質。" } },
+      { id: 48, name: "聖杯王后 (Queen of Cups)", nameEn: "Queen of Cups", image: "https://upload.wikimedia.org/wikipedia/commons/6/62/Cups13.jpg", upright: { keywords: ["同理共情", "慈悲溫柔", "直覺敏銳", "心靈療癒"], desc: "擁有深厚包容力與同理心的守護者，滋養撫平傷痛。" }, reversed: { keywords: ["情緒勒索", "過度沉溺", "心理界限模糊", "歇斯底里"], desc: "情緒界限不清，過度承擔他人情緒導致自身崩潰。" } },
+      { id: 49, name: "聖杯國王 (King of Cups)", nameEn: "King of Cups", image: "https://upload.wikimedia.org/wikipedia/commons/0/04/Cups14.jpg", upright: { keywords: ["情緒沉穩", "寬厚包容", "情感成熟", "明智導師"], desc: "泰山崩於前而色不變，能以成熟與同理掌控情緒大風大浪。" }, reversed: { keywords: ["冷漠壓抑", "情緒操控", "內心動盪", "喜怒無常"], desc: "看似冷靜實則內在波濤洶湧，或用冷暴力面對問題。" } },
 
       // 寶劍牌組 (Swords)
-      { id: 50, name: "寶劍一 (Ace of Swords)", image: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Swords01.jpg" },
-      { id: 51, name: "寶劍二 (Two of Swords)", image: "https://upload.wikimedia.org/wikipedia/commons/9/9e/Swords02.jpg" },
-      { id: 52, name: "寶劍三 (Three of Swords)", image: "https://upload.wikimedia.org/wikipedia/commons/0/02/Swords03.jpg" },
-      { id: 53, name: "寶劍四 (Four of Swords)", image: "https://upload.wikimedia.org/wikipedia/commons/b/bf/Swords04.jpg" },
-      { id: 54, name: "寶劍五 (Five of Swords)", image: "https://upload.wikimedia.org/wikipedia/commons/2/23/Swords05.jpg" },
-      { id: 55, name: "寶劍六 (Six of Swords)", image: "https://upload.wikimedia.org/wikipedia/commons/2/29/Swords06.jpg" },
-      { id: 56, name: "寶劍七 (Seven of Swords)", image: "https://upload.wikimedia.org/wikipedia/commons/3/34/Swords07.jpg" },
-      { id: 57, name: "寶劍八 (Eight of Swords)", image: "https://upload.wikimedia.org/wikipedia/commons/a/a7/Swords08.jpg" },
-      { id: 58, name: "寶劍九 (Nine of Swords)", image: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Swords09.jpg" },
-      { id: 59, name: "寶劍十 (Ten of Swords)", image: "https://upload.wikimedia.org/wikipedia/commons/d/d4/Swords10.jpg" },
-      { id: 60, name: "寶劍侍者 (Page of Swords)", image: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Swords11.jpg" },
-      { id: 61, name: "寶劍騎士 (Knight of Swords)", image: "https://upload.wikimedia.org/wikipedia/commons/b/b0/Swords12.jpg" },
-      { id: 62, name: "寶劍王后 (Queen of Swords)", image: "https://upload.wikimedia.org/wikipedia/commons/d/d4/Swords13.jpg" },
-      { id: 63, name: "寶劍國王 (King of Swords)", image: "https://upload.wikimedia.org/wikipedia/commons/3/33/Swords14.jpg" },
+      { id: 50, name: "寶劍一 (Ace of Swords)", nameEn: "Ace of Swords", image: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Swords01.jpg", upright: { keywords: ["思想清晰", "真相大白", "突破障礙", "理智決斷"], desc: "斬斷一切迷惘與謊言，以銳利的理智看清事實本質。" }, reversed: { keywords: ["思維混亂", "言詞刻薄", "判斷錯誤", "濫用智慧"], desc: "思緒打結或話語帶刺傷人，需冷靜避免武斷。" } },
+      { id: 51, name: "寶劍二 (Two of Swords)", nameEn: "Two of Swords", image: "https://upload.wikimedia.org/wikipedia/commons/9/9e/Swords02.jpg", upright: { keywords: ["左右為難", "封閉心扉", "僵局對峙", "防衛抗拒"], desc: "蒙上雙眼不願面對抉擇，陷入兩難的內心僵局。" }, reversed: { keywords: ["打破僵局", "被迫面對", "看清真相", "選擇放手"], desc: "無法再逃避問題，必須揭開眼罩做出必要抉擇。" } },
+      { id: 52, name: "寶劍三 (Three of Swords)", nameEn: "Three of Swords", image: "https://upload.wikimedia.org/wikipedia/commons/0/02/Swords03.jpg", upright: { keywords: ["心痛心碎", "悲傷背叛", "言語中傷", "痛苦領悟"], desc: "刺穿心臟的痛楚，唯有正視傷痛才能開始真正的療癒。" }, reversed: { keywords: ["走過心痛", "釋懷原諒", "傷痛復原", "壓抑悲傷"], desc: "時間撫平了最深的傷口，正逐步邁向釋懷與重生。" } },
+      { id: 53, name: "寶劍四 (Four of Swords)", nameEn: "Four of Swords", image: "https://upload.wikimedia.org/wikipedia/commons/b/bf/Swords04.jpg", upright: { keywords: ["靜心休養", "暫停沉思", "養精蓄銳", "退守復原"], desc: "在混亂激戰後暫時休兵，讓身心靈獲得充分休息。" }, reversed: { keywords: ["重返戰場", "躁動不安", "過早行動", "精疲力竭"], desc: "休息未足便急於重回戰場，或內心始終無法放鬆。" } },
+      { id: 54, name: "寶劍五 (Five of Swords)", nameEn: "Five of Swords", image: "https://upload.wikimedia.org/wikipedia/commons/2/23/Swords05.jpg", upright: { keywords: ["兩敗俱傷", "勝之不武", "利益衝突", "敵意背叛"], desc: "贏了爭執卻輸了情誼與人心，得不償失的勝利。" }, reversed: { keywords: ["化解恩怨", "放下勝負欲", "停止無謂戰鬥", "認輸釋懷"], desc: "不再執著誰輸誰贏，選擇退出無意義的心力消耗戰。" } },
+      { id: 55, name: "寶劍六 (Six of Swords)", nameEn: "Six of Swords", image: "https://upload.wikimedia.org/wikipedia/commons/2/29/Swords06.jpg", upright: { keywords: ["渡過難關", "平靜過渡", "遠離風暴", "心靈療癒"], desc: "載著過往傷痛航向平靜水域，事情正在慢慢好轉。" }, reversed: { keywords: ["滯留風暴", "困於過去", "逃避受阻", "問題重來"], desc: "過去的陰影依然困擾著你，難以順利展開新生活。" } },
+      { id: 56, name: "寶劍七 (Seven of Swords)", nameEn: "Seven of Swords", image: "https://upload.wikimedia.org/wikipedia/commons/3/34/Swords07.jpg", upright: { keywords: ["秘密謀劃", "機智脫身", "鋌而走險", "策略周旋"], desc: "以智取勝或暗中行動，留意是否誠實面對所有人事物。" }, reversed: { keywords: ["計謀曝光", "坦承面對", "良心自責", "放棄欺瞞"], desc: "秘密無法再隱瞞，選擇坦白才是解脫的最佳途徑。" } },
+      { id: 57, name: "寶劍八 (Eight of Swords)", nameEn: "Eight of Swords", image: "https://upload.wikimedia.org/wikipedia/commons/a/a7/Swords08.jpg", upright: { keywords: ["自設牢籠", "畫地自限", "無助孤立", "思維束縛"], desc: "困住你的往往不是外在環境，而是內心恐懼的圍牆。" }, reversed: { keywords: ["重獲自由", "看見出路", "掙脫枷鎖", "打開心門"], desc: "意識到圍欄其實並不堅固，勇敢邁出腳步重獲自主。" } },
+      { id: 58, name: "寶劍九 (Nine of Swords)", nameEn: "Nine of Swords", image: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Swords09.jpg", upright: { keywords: ["焦慮失眠", "惡夢驚恐", "自責壓力", "心理折磨"], desc: "深夜中的絕望與焦慮，大部分擔憂皆為大腦幻化出的陰影。" }, reversed: { keywords: ["走出惡夢", "希望破曉", "焦慮減輕", "尋求心理協助"], desc: "最黑暗的長夜即將過去，曙光降臨撫平心中的焦慮。" } },
+      { id: 59, name: "寶劍十 (Ten of Swords)", nameEn: "Ten of Swords", image: "https://upload.wikimedia.org/wikipedia/commons/d/d4/Swords10.jpg", upright: { keywords: ["跌落谷底", "徹底終結", "背後中刀", "黎明前夕"], desc: "痛苦已達極致無法再壞，黎明即將到來，結束即是新生。" }, reversed: { keywords: ["死裡逃生", "谷底反彈", "艱難重整", "餘痛猶存"], desc: "最嚴重的打擊已經撐過，生命開始自谷底慢慢復甦。" } },
+      { id: 60, name: "寶劍侍者 (Page of Swords)", nameEn: "Page of Swords", image: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Swords11.jpg", upright: { keywords: ["敏銳警覺", "求知若渴", "探尋真相", "機智好奇"], desc: "思維敏銳俐落，隨時保持高度警覺並積極求證事實。" }, reversed: { keywords: ["窺探隱私", "多疑猜忌", "言詞刻薄", "口舌是非"], desc: "多疑多慮且說話鋒芒畢露，容易招致口舌是非紛爭。" } },
+      { id: 61, name: "寶劍騎士 (Knight of Swords)", nameEn: "Knight of Swords", image: "https://upload.wikimedia.org/wikipedia/commons/b/b0/Swords12.jpg", upright: { keywords: ["神速果決", "勇往直前", "直擊核心", "雄辯清晰"], desc: "思緒飛快且行動俐落，以無畏的姿態直取問題核心。" }, reversed: { keywords: ["魯莽盲目", "刻薄好鬥", "言詞暴躁", "衝動誤事"], desc: "口快心直缺乏同理心，一意孤行容易釀成衝突災難。" } },
+      { id: 62, name: "寶劍王后 (Queen of Swords)", nameEn: "Queen of Swords", image: "https://upload.wikimedia.org/wikipedia/commons/d/d4/Swords13.jpg", upright: { keywords: ["清醒獨立", "明辨是非", "理性客觀", "洞察本質"], desc: "歷經世事的睿智女性，以純粹的客觀與誠實看待人世。" }, reversed: { keywords: ["冷酷苛刻", "苦澀封閉", "過度防備", "刻薄批判"], desc: "因過去受傷而變得冷酷無情，用批判築起高牆保護自己。" } },
+      { id: 63, name: "寶劍國王 (King of Swords)", nameEn: "King of Swords", image: "https://upload.wikimedia.org/wikipedia/commons/3/33/Swords14.jpg", upright: { keywords: ["理智權威", "專業判斷", "公正無私", "深謀遠慮"], desc: "最高理智與道德律的象徵，能做出最精確公平的評判。" }, reversed: { keywords: ["獨斷冷血", "濫用智慧", "刻薄苛刻", "自以為是"], desc: "缺乏人情味的極度冷漠，用高傲智力壓制他人。" } },
 
       // 錢幣牌組 (Pentacles)
-      { id: 64, name: "錢幣一 (Ace of Pentacles)", image: "https://upload.wikimedia.org/wikipedia/commons/f/fd/Pents01.jpg" },
-      { id: 65, name: "錢幣二 (Two of Pentacles)", image: "https://upload.wikimedia.org/wikipedia/commons/9/9f/Pents02.jpg" },
-      { id: 66, name: "錢幣三 (Three of Pentacles)", image: "https://upload.wikimedia.org/wikipedia/commons/4/42/Pents03.jpg" },
-      { id: 67, name: "錢幣四 (Four of Pentacles)", image: "https://upload.wikimedia.org/wikipedia/commons/3/35/Pents04.jpg" },
-      { id: 68, name: "錢幣五 (Five of Pentacles)", image: "https://upload.wikimedia.org/wikipedia/commons/9/96/Pents05.jpg" },
-      { id: 69, name: "錢幣六 (Six of Pentacles)", image: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Pents06.jpg" },
-      { id: 70, name: "錢幣七 (Seven of Pentacles)", image: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Pents07.jpg" },
-      { id: 71, name: "錢幣八 (Eight of Pentacles)", image: "https://upload.wikimedia.org/wikipedia/commons/4/49/Pents08.jpg" },
-      { id: 72, name: "錢幣九 (Nine of Pentacles)", image: "https://upload.wikimedia.org/wikipedia/commons/f/f0/Pents09.jpg" },
-      { id: 73, name: "錢幣十 (Ten of Pentacles)", image: "https://upload.wikimedia.org/wikipedia/commons/4/42/Pents10.jpg" },
-      { id: 74, name: "錢幣侍者 (Page of Pentacles)", image: "https://upload.wikimedia.org/wikipedia/commons/e/ec/Pents11.jpg" },
-      { id: 75, name: "錢幣騎士 (Knight of Pentacles)", image: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Pents12.jpg" },
-      { id: 76, name: "錢幣王后 (Queen of Pentacles)", image: "https://upload.wikimedia.org/wikipedia/commons/8/88/Pents13.jpg" },
-      { id: 77, name: "錢幣國王 (King of Pentacles)", image: "https://upload.wikimedia.org/wikipedia/commons/1/1c/Pents14.jpg" }
+      { id: 64, name: "錢幣一 (Ace of Pentacles)", nameEn: "Ace of Pentacles", image: "https://upload.wikimedia.org/wikipedia/commons/f/fd/Pents01.jpg", upright: { keywords: ["物質契機", "財富種子", "踏實開端", "具體成果"], desc: "上天賜予的現實機會，為未來的事業與財富扎下深根。" }, reversed: { keywords: ["錯失良機", "投資失利", "基礎不穩", "短視近利"], desc: "面對現實機會猶豫錯失，或投資時缺乏扎實規劃。" } },
+      { id: 65, name: "錢幣二 (Two of Pentacles)", nameEn: "Two of Pentacles", image: "https://upload.wikimedia.org/wikipedia/commons/9/9f/Pents02.jpg", upright: { keywords: ["靈活應變", "收支平衡", "多工調配", "隨機動態"], desc: "在多個事務與開銷之間靈巧遊走，維持動態平衡。" }, reversed: { keywords: ["失衡失控", "財務緊繃", "負擔過重", "手忙腳亂"], desc: "身兼數職或開銷過大導致平衡破裂，感到應接不暇。" } },
+      { id: 66, name: "錢幣三 (Three of Pentacles)", nameEn: "Three of Pentacles", image: "https://upload.wikimedia.org/wikipedia/commons/4/42/Pents03.jpg", upright: { keywords: ["專業團隊", "匠人精神", "分工合作", "技能獲賞"], desc: "不同領域專家攜手合作，憑藉卓越手藝打造偉大工程。" }, reversed: { keywords: ["團隊不和", "專業不足", "溝通不良", "敷衍了事"], desc: "合作中缺乏默契與尊重，或技術專業未達水準要求。" } },
+      { id: 67, name: "錢幣四 (Four of Pentacles)", nameEn: "Four of Pentacles", image: "https://upload.wikimedia.org/wikipedia/commons/3/35/Pents04.jpg", upright: { keywords: ["保守穩固", "緊握資源", "財務安全", "界限清晰"], desc: "牢牢守住既有資產與安全感，但也可能走向僵化小氣。" }, reversed: { keywords: ["過度守財", "恐懼失去", "破財放手", "防衛過當"], desc: "因過度害怕貧窮而變得摳門，或者因衝動出現破財。" } },
+      { id: 68, name: "錢幣五 (Five of Pentacles)", nameEn: "Five of Pentacles", image: "https://upload.wikimedia.org/wikipedia/commons/9/96/Pents05.jpg", upright: { keywords: ["經濟困境", "身心匱乏", "孤立無援", "寒冬考驗"], desc: "在風雪中感到貧困與落魄，但溫暖的庇護所其實就在身旁。" }, reversed: { keywords: ["走出困境", "重獲援助", "財務復甦", "重拾希望"], desc: "寒冬逐漸過去，得到外界及時支援，財務狀況慢慢回溫。" } },
+      { id: 69, name: "錢幣六 (Six of Pentacles)", nameEn: "Six of Pentacles", image: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Pents06.jpg", upright: { keywords: ["慷慨施予", "財富流動", "接受贊助", "平衡互助"], desc: "資源公平分享與施受平衡，行有餘力則助人，受助則感恩。" }, reversed: { keywords: ["不公分配", "附帶條件", "自私吝嗇", "負債壓力"], desc: "施予背後帶著控制意圖，或是資源分配極度不均。" } },
+      { id: 70, name: "錢幣七 (Seven of Pentacles)", nameEn: "Seven of Pentacles", image: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Pents07.jpg", upright: { keywords: ["評估成果", "耐心等待", "長期投資", "停步審視"], desc: "辛勤耕耘後的審視時刻，耐心等待果實慢慢成熟。" }, reversed: { keywords: ["急躁焦慮", "報酬不如預期", "努力白費", "缺乏耐心"], desc: "因急於看到成果而焦慮不安，或對投資方向產生懷疑。" } },
+      { id: 71, name: "錢幣八 (Eight of Pentacles)", nameEn: "Eight of Pentacles", image: "https://upload.wikimedia.org/wikipedia/commons/4/49/Pents08.jpg", upright: { keywords: ["專注匠心", "反覆打磨", "精進技能", "腳踏實地"], desc: "全神貫注於手頭工藝與工作，每一份專注都是成功的基石。" }, reversed: { keywords: ["敷衍草率", "枯燥厭煩", "缺乏專注", "投機取巧"], desc: "重複的工作讓人感到枯燥乏味，或因心浮氣躁而品質下滑。" } },
+      { id: 72, name: "錢幣九 (Nine of Pentacles)", nameEn: "Nine of Pentacles", image: "https://upload.wikimedia.org/wikipedia/commons/f/f0/Pents09.jpg", upright: { keywords: ["物質獨立", "優雅從容", "自食其果", "豐饒奢華"], desc: "憑藉自身實力獲得財務自由與安樂，品味精緻生活。" }, reversed: { keywords: ["過度揮霍", "表面奢華", "財務依賴", "缺乏內在充實"], desc: "過度追求外在虛榮而透支財務，或心靈感到孤獨匱乏。" } },
+      { id: 73, name: "錢幣十 (Ten of Pentacles)", nameEn: "Ten of Pentacles", image: "https://upload.wikimedia.org/wikipedia/commons/4/42/Pents10.jpg", upright: { keywords: ["家族傳承", "基業長青", "長久富足", "家族和睦"], desc: "數代積累的宏大基業與家族繁榮，物質安全感達到巔峰。" }, reversed: { keywords: ["遺產糾紛", "家道中落", "傳統枷鎖", "財務危機"], desc: "家庭內部因利益產生紛爭，或既有資產面臨風險危機。" } },
+      { id: 74, name: "錢幣侍者 (Page of Pentacles)", nameEn: "Page of Pentacles", image: "https://upload.wikimedia.org/wikipedia/commons/e/ec/Pents11.jpg", upright: { keywords: ["好學實踐", "踏實認真", "物質新知", "勤奮起步"], desc: "腳踏實地的新人，抱持嚴謹專注的態度認真學習新技能。" }, reversed: { keywords: ["缺乏恆心", "眼高手低", "進度延宕", "浪費機會"], desc: "想得多做得少，缺乏將想法付諸長期實踐的毅力。" } },
+      { id: 75, name: "錢幣騎士 (Knight of Pentacles)", nameEn: "Knight of Pentacles", image: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Pents12.jpg", upright: { keywords: ["穩健可靠", "盡忠職守", "持之以恆", "步步為營"], desc: "最值得信賴的實踐者，不急不躁，一步一腳印達成目標。" }, reversed: { keywords: ["死板僵化", "懶散停滯", "過度保守", "效率低落"], desc: "過於墨守成規缺乏變通，或因拖延而錯失了時機。" } },
+      { id: 76, name: "錢幣王后 (Queen of Pentacles)", nameEn: "Queen of Pentacles", image: "https://upload.wikimedia.org/wikipedia/commons/8/88/Pents13.jpg", upright: { keywords: ["溫暖滋養", "務實持家", "豐衣足食", "腳踏實地"], desc: "如同大地之母般務實能幹，悉心營造舒適安全的生活環境。" }, reversed: { keywords: ["過度物質", "焦慮開銷", "疏於照顧", "自私計較"], desc: "過於把安全感建立在金錢上，容易因瑣碎花費而陷入焦慮。" } },
+      { id: 77, name: "錢幣國王 (King of Pentacles)", nameEn: "King of Pentacles", image: "https://upload.wikimedia.org/wikipedia/commons/1/1c/Pents14.jpg", upright: { keywords: ["商業帝國", "財務領袖", "穩若磐石", "成功實業"], desc: "在物質世界取得巔峰成就的企業家與領袖，沉穩而慷慨。" }, reversed: { keywords: ["唯利是圖", "頑固獨斷", "投機失敗", "吝嗇專橫"], desc: "眼中只有利益而忽略道德情面，過度貪婪恐招致損失。" } }
     ];
 
     function createCardElement(c, label) {
@@ -175,12 +175,20 @@
 
       // 78 張隨機洗牌
       const shuffled = [...tarotDeck].sort(() => 0.5 - Math.random());
-      const selected = shuffled.slice(0, count).map(card => ({
-        ...card,
-        isReversed: Math.random() < 0.5
-      }));
+      const selected = shuffled.slice(0, count).map(card => {
+        const isReversed = Math.random() < 0.5;
+        const details = isReversed ? card.reversed : card.upright;
+        return {
+          id: card.id,
+          name: card.name,
+          image: card.image,
+          isReversed: isReversed,
+          keywords: details.keywords,
+          desc: details.desc
+        };
+      });
 
-      // 排版呈現：五牌陣使用響應式彈性排版
+      // 排版呈現
       const cardContainer = document.createElement('div');
       cardContainer.className = 'w-full flex flex-wrap justify-center gap-2 md:gap-3';
       selected.forEach((c, idx) => {
